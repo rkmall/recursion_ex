@@ -12,16 +12,16 @@
 // For 'n' number,
 //			Sum(n) = 1 + 2 + 3 + ... + (n-1) + n -------------------- [1]
 //							where,
-//									n = last tern
-//									n-1 = second last term
+//								n = last tern
+//								n-1 = second last term
 //
 // Now, since eqn[1]
 //			Sum(n) = Sum(n-1) + n
 //
 // Therefore, recurrence relation:
-//					 0					if n = 0	base case
-//			Sum(n) =  	
-//                   Sum(n-1) + n		if n > 0	recursive call
+//				 	0			if n = 0	base case
+//		   	Sum(n) =  	
+//                   			Sum(n-1) + n		if n > 0	recursive call
 //
 int sum_recursive(int n) 
 {
@@ -63,16 +63,16 @@ int sum_iterative(int n)
 // For 'n' number,
 //			Fact(n) = 1 * 2 * 3 * ... * (n-1) * n -------------------- [1]
 //							where,
-//									n = last tern
-//									n-1 = second last term
+//								n = last tern
+//								n-1 = second last term
 //
 // Now, since eqn[1]
 //			Fact(n) = Fact(n-1) * n
 //
 // Therefore, recurrence relation:
-//					  1					if n = 1	base case
+//					1			if n = 1	base case
 //			Fact(n) =  	
-//                    Fact(n-1) * n		if n > 1	recursive call
+//                    			Fact(n-1) * n		if n > 1	recursive call
 //
 int fact_recursive(int n)
 {
@@ -107,16 +107,16 @@ int fact_iterative(int n)
 // For 'm' base and 'n' power,
 //			Pow(m, n) = m * m * m * ... * (n-1) times * m -------------------- [1]
 //							where,
-//									m = last tern
-//									n-1 times = till second last term
+//								m = last tern
+//								n-1 times = till second last term
 //
 // Now, since eqn[1]
 //			Pow(m, n) = Pow(m, n-1) * m
 //
 // Therefore, recurrence relation:
-//					    1					if n = 0	base case
+//					1			if n = 0	base case
 //			Pow(m, n) =  	
-//                      Pow(m, n-1) * m		if n > 1	recursive call
+//                      		Pow(m, n-1) * m		if n > 1	recursive call
 //
 int pow_recursive(int m, int n)
 {
@@ -132,12 +132,12 @@ int pow_recursive(int m, int n)
 int pow_optimized(int m, int n)
 {
 	if (n == 1)		// also, n == 1
-		return m;   // also, return m;
+		return m;   	// also, return m;
 
 	if (n % 2 == 0)
-		return pow(m * m, n / 2);			// if even power
+		return pow(m * m, n / 2);		// if even power
 	else
-		return pow(m * m, (n - 1) / 2) * m; // if odd power
+		return pow(m * m, (n - 1) / 2) * m; 	// if odd power
 }
 
 
