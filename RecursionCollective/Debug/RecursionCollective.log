@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\stratysilver\Documents\RM Files\Data Structures\C++\Practical\2_Recursion\RecursionCollective\RecursionCollective\applications.h(134,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\stratysilver\Documents\RM Files\Data Structures\C++\Practical\2_Recursion\RecursionCollective\RecursionCollective\applications.h(136,34): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  RecursionCollective.vcxproj -> C:\Users\stratysilver\Documents\RM Files\Data Structures\C++\Practical\2_Recursion\RecursionCollective\Debug\RecursionCollective.exe
