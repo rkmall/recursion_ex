@@ -167,12 +167,12 @@ double pow_optimized(double m, double n)
 //			Pow(x, n) =  	
 //                      		Pow(x, n-1) * x		if n > 0	recursive call
 //
-// When Input: double x = 2
-//			   double n = 5
-
-//			   taylor(x, n) = 1 + 2/1 + 2^2/2! + 2^3/3! + 2^4/4! + 2^5/5!
-//						    = 1 + 2 + 2 + 1.333333 + 0.666666 + 0.266666
-//						    = 7.266667
+// When Input: double x = 2.0
+//	       double n = 5.0
+//
+//	       taylor(x, n) = 1 + 2/1 + 2^2/2! + 2^3/3! + 2^4/4! + 2^5/5!
+//			    = 1 + 2 + 2 + 1.333333 + 0.666666 + 0.266666
+//	                    = 7.266667
 
 double taylor(double x, double n)
 {
@@ -184,7 +184,7 @@ double taylor(double x, double n)
 
 	result = taylor(x, n - 1);		// recursive call
 
-	power = power * x;				// executes at Returning time
+	power = power * x;			// executes at Returning time
 	factorial = factorial * n;		// executes at Returning time
 
 	return result + (power / factorial);	// executes at Returning time
@@ -196,17 +196,17 @@ double taylor(double x, double n)
 //			e^x = 1 + x/1 + x^2/2! + x^3/3! + x^4/4!
 //
 // Taking common multiple,
-//				      x		    x     x^2     x^3
+//				  x         x     x^2     x^3
 //		   	     1 + --- [ 1 + --- + ----- + --------]
-//					  1	        2     2*3     2*3*4
+//			          1	    2     2*3     2*3*4
 //
-//				     x	       x          x       x^2
-//			  = 1 + ----[ 1 + --- [ 1 + ----- + ------] ]
-//                   1         2          3       3*4
+//				   x	    x          x       x^2
+//			   = 1 + ----[ 1 + --- [ 1 + ----- + ------] ]
+//                                 1        2          3       3*4
 //
-//                   x        x          x           x
-//           =  1 + ---[ 1 + ----[ 1 + -----[ 1 + ------- * 1] ] ]
-//                   1        2          3           4
+//                                x        x          x           x
+//                        =  1 + ---[ 1 + ----[ 1 + -----[ 1 + ------- * 1] ] ]
+//                                1        2          3           4
 //
 // Now we have reduced the number of multiplication
 
@@ -217,7 +217,7 @@ double taylor_optimized(double x, double n)
 	if (n == 0)
 		return result;
 
-	result = 1 + result*x/n;			// processing done at Calling time
+	result = 1 + result*x/n;	// processing done at Calling time
 
 	return taylor_optimized(x, n - 1);
 }
@@ -241,13 +241,13 @@ double taylor_iterative(double x, double n)
 
 // Fibonacci series
 //
-//	Except 0th and 1th term, all other terms are obtained by adding immdediate previous two terms
+// Except 0th and 1th term, all other terms are obtained by adding immdediate previous two terms
 //
-//					0			if n = 0	base case
-//			Fib(n) =  	
-//                      		1		if n = 1	
+//				0		if n = 0	base case
+//		Fib(n) =  	
+//                     		1		if n = 1	
 //									
-//								Fib(n-2) + Fib(n-1)		if n > 1
+//	 		Fib(n-2) + Fib(n-1)	if n > 1
 
 int fib_recursive(int n)
 {
@@ -301,8 +301,9 @@ int fib_iterative(int n)
 // Combination using formula
 //	nCr = n!/(n-r)!.r!
 //			where,
-//					n = number of items
-//					r = number of spaces
+//				n = number of items
+//				r = number of spaces
+
 int combi_iterative(int n, int r)
 {
 	int numerator, dinominator;
@@ -313,26 +314,26 @@ int combi_iterative(int n, int r)
 	return numerator / dinominator;
 }
 
-
 // Combination using Pascal's Triangle
 //	
-//									0C0 = 1
-//							        /     \
-//								   /       \     
-//							   1C0 = 1    1C1 = 1
-//							   /      \   /     \ 
-//							  /        \ /       \
+//				    0C0 = 1
+//			            /    \
+//	    		           /      \     
+//			      1C0 = 1    1C1 = 1
+//			      /      \   /     \ 
+//			     /        \ /       \
 //                       2C0 = 1     2C1 = 2    2C2 = 1
-//						  /    \      /    \     / 	  \
-//                       /      \    /      \   /      \
-//                   3C0 = 1    3C1 = 3     3C2 = 1    3C3 = 1
+//			  /    \      /    \    /     \
+//                       /      \    /      \  /       \
+//                   3C0 = 1    3C1 = 3     3C2 = 3    3C3 = 1 
 //
 // From above pattern, we can observer, for instance in order to get 3C1,
 //				
-//				First previous term = (n-1)C(r-1)
+//		First previous term = (n-1)C(r-1)
 //              Second previous term = (n-1)Cr
 // Therefore,
-//				nCr = (n-1)C(r-1) + (n-1)Cr
+//		nCr = (n-1)C(r-1) + (n-1)Cr
+
 int combi_recursive(int n, int r)
 {
 	if (r == 0 || n == r)
@@ -346,19 +347,19 @@ int combi_recursive(int n, int r)
 //
 // For n = 3, src = 1, aux = 2, dest = 3,
 //				
-//								3,1,2,3
-//							   /   |   \
+//				3,1,2,3
+//      		       /   |   \
 //                            /    |    \
-//							 /	   |     \
+//			     /	   |     \
 //                 ----------      |       ----------
-//				  |				   |	             |
+//		  |		   |	             |
 //             2,1,3,2           1 to 3            2,2,1,3      
-//			  /   |   \                           /   |   \					
-//           /    |    \						 /    |    \ 
-//   		/     |     \						/     |     \
+//	      /   |   \                           /   |   \					
+//           /    |    \			 /    |    \ 
+//   	    /     |     \			/     |     \
 //      1,1,2,3  1 to 2  1,3,1,2           1,2,3,1  2 to 3   1,1,2,3
 //     /  |   \          /  |   \          /  |   \          /  |   \    
-//    /	  |    \        /   |    \        /	  |    \        /   |    \
+//    /	  |    \        /   |    \        /   |    \        /   |    \
 //   /    |     \      /    |     \      /    |     \      /    |     \
 //  X   1 to 3   X    X   3 to 2   X    X   2 to 1   X     X   1 to 3   X
 //
@@ -369,7 +370,7 @@ int combi_recursive(int n, int r)
 //		=> the disk "moved to" will be the destination
 //		
 //		=> print statement will be executed only for the disk 
-//         moved from source(a) to destination(c) as per the method signature (main step)
+//                 moved from source(a) to destination(c) as per the method signature (main step)
 void toh(int n, int a, int b, int c)
 {
 	if (n > 0)
