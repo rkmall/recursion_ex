@@ -2,7 +2,6 @@
 #define _APPLICATIONS_H_
 
 #include <limits>
-
 // Sum of first 'n' natural numbers
 // 
 //---Establishing recurrence relationship---
